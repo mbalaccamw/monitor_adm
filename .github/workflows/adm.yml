@@ -1,13 +1,16 @@
 name: ADM monitor
 on:
   schedule:
-    - cron: "0 12 * * *"  # 14:00 Europe/Rome in ora legale (UTC+2)
-    - cron: "0 17 * * *"  # 19:00 Europe/Rome in ora legale (UTC+2)
-  workflow_dispatch:      # per lanciare a mano
+    - cron: "0 12 * * *"  # ≈ 14:00 Europe/Rome (in ora legale, UTC+2)
+    - cron: "0 17 * * *"  # ≈ 19:00 Europe/Rome (in ora legale, UTC+2)
+  workflow_dispatch:      # pulsante "Run workflow"
 
-# Permessi per poter fare commit del file di stato
 permissions:
   contents: write
+
+concurrency:
+  group: adm-monitor
+  cancel-in-progress: false
 
 jobs:
   monitor:
@@ -17,15 +20,20 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install requests beautifulsoup4
+
+      - name: Install deps
+        run: pip install requests beautifulsoup4
+
       - name: Run monitor
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python monitor.py
+
       - name: Commit state (if changed)
         run: |
           git config user.name  "github-actions[bot]"
@@ -35,5 +43,18 @@ jobs:
             git commit -m "Update ADM monitor state [skip ci]" || echo "Nothing to commit"
             git push
           else
-            echo "No state changes."
+            echo "No changes in adm_state.json"
           fi
+
+      - name: Write heartbeat (always)
+        run: |
+          mkdir -p state
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > state/last_run_utc.txt
+
+      - name: Commit heartbeat
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/last_run_utc.txt
+          git commit -m "Heartbeat: update last run [skip ci]" || echo "Nothing to commit"
+          git push
