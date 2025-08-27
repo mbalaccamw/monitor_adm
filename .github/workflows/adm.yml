@@ -1,8 +1,12 @@
 name: ADM monitor
 on:
   schedule:
+    - cron: "0 8 * * *"
+    - cron: "0 10 * * *"
     - cron: "0 12 * * *"  # ≈ 14:00 Europe/Rome (in ora legale, UTC+2)
-    - cron: "0 17 * * *"  # ≈ 19:00 Europe/Rome (in ora legale, UTC+2)
+    - cron: "0 14 * * *"  # ≈ 19:00 Europe/Rome (in ora legale, UTC+2)
+    - cron: "0 16 * * *"
+    - cron: "0 18 * * *"
   workflow_dispatch:      # pulsante "Run workflow"
 
 permissions:
