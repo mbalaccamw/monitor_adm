@@ -1,16 +1,39 @@
-name: Telegram ping (smoke test)
+name: ADM monitor
 on:
-  workflow_dispatch:   # pulsante "Run workflow"
+  schedule:
+    - cron: "0 12 * * *"  # 14:00 Europe/Rome in ora legale (UTC+2)
+    - cron: "0 17 * * *"  # 19:00 Europe/Rome in ora legale (UTC+2)
+  workflow_dispatch:      # per lanciare a mano
 
+# Permessi per poter fare commit del file di stato
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  ping:
+  monitor:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Telegram
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests beautifulsoup4
+      - name: Run monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python monitor.py
+      - name: Commit state (if changed)
         run: |
-          curl -sS -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
-            -d text="✅ GitHub Actions is set up."
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain state/adm_state.json || true)" ]; then
+            git add state/adm_state.json
+            git commit -m "Update ADM monitor state [skip ci]" || echo "Nothing to commit"
+            git push
+          else
+            echo "No state changes."
+          fi
