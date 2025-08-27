@@ -1,31 +1,16 @@
-# .github/workflows/adm.yml (estratto)
+name: Telegram ping (smoke test)
+on:
+  workflow_dispatch:   # pulsante "Run workflow"
+
 permissions:
-  contents: write   # <— cambia da read a write
+  contents: read
 
 jobs:
-  monitor:
+  ping:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install requests beautifulsoup4
-      - name: Run monitor
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python monitor.py
-      - name: Commit state (if changed)
+      - name: Send Telegram
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain state/adm_state.json)" ]; then
-            git add state/adm_state.json
-            git commit -m "Update ADM monitor state [skip ci]"
-            git push
-          else
-            echo "No state changes."
-          fi
+          curl -sS -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d text="✅ GitHub Actions is set up."
