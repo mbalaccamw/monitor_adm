@@ -1,0 +1,22 @@
+name: ADM monitor
+on:
+  schedule:
+    - cron: "0 12 * * *"  # 14:00 Europe/Rome quando in ora legale (UTC+2)
+    - cron: "0 17 * * *"  # 19:00 Europe/Rome quando in ora legale (UTC+2)
+  workflow_dispatch:      # pulsante "Run workflow" per test manuale
+permissions:
+  contents: read
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests beautifulsoup4
+      - name: Run monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python monitor.py
