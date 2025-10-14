@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: "0 8 * * *"
     - cron: "0 10 * * *"
-    - cron: "0 12 * * *"  # ≈ 14:00 Europe/Rome (in ora legale, UTC+2)
+    - cron: "0 12 * * *"  # ≈ 14:00 Europe/Rome (ora legale, UTC+2)
     - cron: "0 14 * * *"
     - cron: "0 16 * * *"
     - cron: "0 18 * * *"
@@ -38,16 +38,17 @@ jobs:
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python monitor.py
 
+      # 🔽 Ora committiamo TUTTI i file cambiati sotto state/
       - name: Commit state (if changed)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain state/adm_state.json || true)" ]; then
-            git add state/adm_state.json
-            git commit -m "Update ADM monitor state [skip ci]" || echo "Nothing to commit"
+          if [ -n "$(git status --porcelain state || true)" ]; then
+            git add state
+            git commit -m "Update monitor state [skip ci]" || echo "Nothing to commit"
             git push
           else
-            echo "No changes in adm_state.json"
+            echo "No changes under state/"
           fi
 
       - name: Write heartbeat (always)
