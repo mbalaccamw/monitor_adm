@@ -1,7 +1,7 @@
 {
-  "text_hash": "87111f1a7dde69ec502008fbb65bff87b89ebdec588d0d2b416b0edc7557cc7b",
+  "text_hash": "c6fc2127e6dc1d0a618188361fe7c200c7c8aad228c89a0a951a0a62cd8002df",
   "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "combined_hash": "36018708e7e370c1b7f704d45a5a06bbecedf8c364f3fc81745e61cb5f9c2d0d",
+  "combined_hash": "ca40faa293e5caea7960410ebdef6a06c6f6355bf4e60dc6b2795adcf9bf8e6a",
   "pdfs": [],
   "keywords": [
     "convocazione",
@@ -10,6 +10,6 @@
     "scorrimento",
     "vincitori"
   ],
-  "ts": 1760433378,
+  "ts": 1760544894,
   "final_url": "https://www.adm.gov.it/portale/-/convocazioni-3"
 }
