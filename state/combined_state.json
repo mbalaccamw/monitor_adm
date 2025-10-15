@@ -22,15 +22,16 @@
     "combined_hash": "36018708e7e370c1b7f704d45a5a06bbecedf8c364f3fc81745e61cb5f9c2d0d"
   },
   "https://www.adm.gov.it/portale/concorso-pubblico-a-complessivi-415-posti-area-assistenti-di-cui-10-riservati-alla-provincia-autonoma-di-bolzano-presso-l-agenzia-delle-dogane-e-dei-monopoli": {
-    "ts": 1760437123,
+    "ts": 1760537526,
     "keywords": [
       "convocazioni",
+      "graduatoria",
       "graduatorie",
       "scorrimento"
     ],
     "pdfs": [],
-    "text_hash": "7f2a95c838f3008380df5992a7aacc1442b49621ad40c6cfcc09687db7dbd2d2",
+    "text_hash": "c287dd48442c35742c6e6f3317bcd52a40ce30d4dfccacdfa96876443bd6028c",
     "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "combined_hash": "0ab90cc9e2a8f81393735a4fe5ec5af186b56e8bf34bbc1eda99508ddbff0441"
+    "combined_hash": "1d072b5a2c23f7b502046e9c2e30824520b8e4e9317d8379101b7c279c39b9f0"
   }
 }
