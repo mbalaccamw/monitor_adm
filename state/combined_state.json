@@ -1,11 +1,16 @@
 {
-  "adm_state.json": {
-    "ts": 1756282459,
-    "keywords": [],
+  "https://www.adm.gov.it/portale/concorso-pubblico-a-complessivi-415-posti-area-assistenti-di-cui-10-riservati-alla-provincia-autonoma-di-bolzano-presso-l-agenzia-delle-dogane-e-dei-monopoli": {
+    "ts": 1769084580,
+    "keywords": [
+      "convocazioni",
+      "graduatoria",
+      "graduatorie",
+      "scorrimento"
+    ],
     "pdfs": [],
-    "text_hash": "87111f1a7dde69ec502008fbb65bff87b89ebdec588d0d2b416b0edc7557cc7b",
+    "text_hash": "74879a94f492c0da50262582067ac6a4ec0aa9abc031fe95d6a011398943176a",
     "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "combined_hash": "36018708e7e370c1b7f704d45a5a06bbecedf8c364f3fc81745e61cb5f9c2d0d"
+    "combined_hash": "2529645b4bf517dd4aab0c06e164d79675682766aca04ffd5cace5b8b86779d1"
   },
   "https://www.adm.gov.it/portale/-/convocazioni-3": {
     "ts": 1770223125,
@@ -21,17 +26,12 @@
     "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "combined_hash": "c9c80e3d72350449dd5032dc5ba3f93b5640fa7069fd43865213c63136999e75"
   },
-  "https://www.adm.gov.it/portale/concorso-pubblico-a-complessivi-415-posti-area-assistenti-di-cui-10-riservati-alla-provincia-autonoma-di-bolzano-presso-l-agenzia-delle-dogane-e-dei-monopoli": {
-    "ts": 1769084580,
-    "keywords": [
-      "convocazioni",
-      "graduatoria",
-      "graduatorie",
-      "scorrimento"
-    ],
+  "adm_state.json": {
+    "ts": 1756282459,
+    "keywords": [],
     "pdfs": [],
-    "text_hash": "74879a94f492c0da50262582067ac6a4ec0aa9abc031fe95d6a011398943176a",
+    "text_hash": "87111f1a7dde69ec502008fbb65bff87b89ebdec588d0d2b416b0edc7557cc7b",
     "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "combined_hash": "2529645b4bf517dd4aab0c06e164d79675682766aca04ffd5cace5b8b86779d1"
+    "combined_hash": "36018708e7e370c1b7f704d45a5a06bbecedf8c364f3fc81745e61cb5f9c2d0d"
   }
 }
