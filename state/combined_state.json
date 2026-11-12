@@ -1,6 +1,6 @@
 {
   "https://www.adm.gov.it/portale/-/convocazioni-3": {
-    "ts": 1788444460,
+    "ts": 1794501108,
     "keywords": [
       "convocazione",
       "convocazioni",
@@ -9,12 +9,12 @@
       "vincitori"
     ],
     "pdfs": [],
-    "text_hash": "5c78a8a326a5bf9301da708516a4129877e001462d2bad57e97d87c4307fe419",
+    "text_hash": "0061327a15b0fb625717de19d112546eb328c27d235a5e4225eced7c04ef7ff0",
     "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "combined_hash": "88a13b5ec4faaae11dd9308ce10130677833f74d3fe54e06452e9f379efd9369"
+    "combined_hash": "adeaa2fd643a6c541664e36997354fd2c3863606ad8cdfb8e447617ea5ed924a"
   },
   "https://www.adm.gov.it/portale/concorso-pubblico-a-complessivi-415-posti-area-assistenti-di-cui-10-riservati-alla-provincia-autonoma-di-bolzano-presso-l-agenzia-delle-dogane-e-dei-monopoli": {
-    "ts": 1788448853,
+    "ts": 1794501109,
     "keywords": [
       "convocazioni",
       "graduatoria",
@@ -22,9 +22,9 @@
       "scorrimento"
     ],
     "pdfs": [],
-    "text_hash": "5008712d3fd275bf813488655ae3122d29b2e86261322de7d33c340163609f51",
+    "text_hash": "0ea26e8441a9c977ca9cea452438b936dc15eedeea82f5d414335df4246f9a64",
     "pdfs_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "combined_hash": "40a74945d0c4fad66f49f27d1419bafbc9bf27b2237f6b79717af3658ddf59d3"
+    "combined_hash": "7db934cab72cd19b0605be6e74e21146f8de95e2a080483ee383f0feb8e9c798"
   },
   "adm_state.json": {
     "ts": 1756282459,
